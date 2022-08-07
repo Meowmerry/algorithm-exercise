@@ -114,8 +114,7 @@ const commonElements = (...args) => {  // Time Complexity =  O(n)  / Space Compl
    
     // set a new array that filters keys for only those whose
     // corresponding value is equal to number of input arrays
-    const commonKeys = keys;
-        .filter((key) => cache[key] === args.length)
+    const commonKeys = keys.filter((key) => cache[key] === args.length)
             .map((key) => isNaN(Number(key)) ? key : Number(key))
     return commonKeys.length > 0 ? commonKeys : 'Nothing in Common!'
 }
@@ -129,3 +128,22 @@ const arr11 = ["dog", "lion"];
 const arr22 = [3, 7, 2, "mock element"];
 const arr33 = [100, 2000];
 console.log(commonElements(arr11, arr22, arr33)); // -> "Nothing in Common!"
+
+
+/*
+Write a function called commonElements1 that takes in any number of arrays in the 
+argument. The arrays may contain both numbers and strings. 
+It should return a new array
+with all the common elements (both numbers and/or strings) from the given input. 
+If there are no common numbers/strings, return "Nothing in Common!"
+Assume there are no duplicates within the array.
+
+ex: 
+arr1 = [2, 10,'cat', 3, 99, 2000, 'dog', 'lion'];
+arr2 = [3, 7, 2, 2000, 1, 'dog', 'cat'];
+arr3 = [2, 100, 2000, 'dog', 3, 'lion'];
+
+commonElements1(arr1, arr2, arr3) -> [2, 3, 2000, 'dog'] */
+const commonElements1 = () =>{
+    
+}

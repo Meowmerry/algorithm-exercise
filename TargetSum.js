@@ -29,6 +29,24 @@ The numbers at index 0 and 2 add up to 11: 2 + 9 = 11
 //     return [-1, -1];
 // }
 
+function twoSumTarget(nums, target) {
+	for(let i = 0 ; i < nums.length ; i ++){
+        const curr = nums[i];
+        for(let j = 0 ; j< nums.length ; j++){
+            const subCurr = nums[j]
+            if(curr+subCurr === target && i !== j){
+                return [i,j]
+            }
+        }
+    }
+    return [-1,-1]
+    
+};
+
+console.log(twoSumTarget([1, 2, 3, 4, 6], 6)) // [1, 3]
+console.log(twoSumTarget([2, 3, 9, 11], 11)) // [0,2] 
+
+
 const TargetSum = (nums, target) => {
     // create an object to hold value
     const cache = {};
@@ -74,20 +92,3 @@ function twoSumTarget(nums, target) {
 console.log(twoSumTarget([1, 2, 3, 4, 6], 6)) // [1, 3]
 console.log(twoSumTarget([2, 3, 9, 11], 11)) // [0,2] 
 
-
-function twoSumTarget(nums, target) {
-	for(let i = 0 ; i < nums.length ; i ++){
-        const curr = nums[i];
-        for(let j = 0 ; j< nums.length ; j++){
-            const subCurr = nums[j]
-            if(curr+subCurr === target && i !== j){
-                return [i,j]
-            }
-        }
-    }
-    return [-1,-1]
-    
-};
-
-console.log(twoSumTarget([1, 2, 3, 4, 6], 6)) // [1, 3]
-console.log(twoSumTarget([2, 3, 9, 11], 11)) // [0,2] 

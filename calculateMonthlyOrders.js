@@ -50,12 +50,12 @@ calculateMonthlyOrders(orders); // 16800 */
 
 const calculateMonthlyOrders = (array)=>{
    /* ====== Solution 1 ====== 0.072 seconds */ 
-    // return array.reduce((sum, curr)=>{
-    //     for(let key in curr) {
-    //       sum += curr[key]
-    //     };
-    //     return sum;
-    // },0)
+    return array.reduce((sum, curr)=>{
+        for(let key in curr) {
+          sum += curr[key]
+        };
+        return sum;
+    },0)
  
 
     /* ====== Solution 2 ======  0.071 seconds */

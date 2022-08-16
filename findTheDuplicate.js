@@ -7,8 +7,14 @@ findTheDuplicate([1,2,1,4,3,12]) // 1
 findTheDuplicate([6,1,9,5,3,4,9]) // 9
 findTheDuplicate([2,1,3,4]) // undefined
 */
-const findTheDuplicate = (arr) =>{
-    
+const findTheDuplicate = (arr) => {
+    const cache = {};
+    for(let i = 0 ; i < arr.length ; i ++){
+        console.log(cache)
+        if(arr[i] in cache) return arr[i]  
+        else cache[arr[i]] = arr[i]
+    }
+  return;
 }
 
 

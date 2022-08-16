@@ -15,9 +15,36 @@ Output : Array
 */
 
 const skipVowels = (string) => {
-    return string.replace(/[aeiou]/g, '');
+
+    // return string.replace(/[aeiou]/g, '');
+
+    let index = 0;
+    const vowels = [...'aeiouAEIOU']
+    
+    const result = [];
+    while(index < string.length){
+        if(vowels.includes(string[index])){
+            index+=2;
+        }else{
+            result.push(string[index])
+            index++
+        }
+    }
+    return result;
 }
 
 console.log(skipVowels("hello")) // ["h", "l"]
 console.log(skipVowels("much fun")) // ["m", "h", " ", "f"]
 console.log(skipVowels("aaaa")) // []
+
+const vowels = [...'aeiouAEIOU'];
+const skipVowelsRecursive = (string, i = 0 , result = []) => {
+    if(!string[i]) return result;
+    if(vowels.includes(string[i])) i += 2;
+    else  result.push(string[i++]) 
+    return skipVowelsRecursive(string, i, result)
+}
+
+console.log(skipVowelsRecursive("hello")) // ["h", "l"]
+console.log(skipVowelsRecursive("much fun")) // ["m", "h", " ", "f"]
+console.log(skipVowelsRecursive("aaaa")) // []

@@ -1,0 +1,8 @@
+{
+  "name": "algo-exercise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Meowmerry/algorithm-exercise.git",
+  "author": "MeowMerry <meow3525@gmail.com>",
+  "license": "MIT"
+}

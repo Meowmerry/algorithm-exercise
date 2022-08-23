@@ -6,3 +6,11 @@ totalCaps(["Elie", "Matt", "Tim"]) // 3
 totalCaps(["hello", "world"]) // 0
 
 */
+
+const totalCaps = (arr:string[]) =>{
+
+}
+
+console.log(totalCaps(["AwesomE", "ThIngs", "hAppEning", "HerE"])) // 8
+console.log(totalCaps(["Elie", "Matt", "Tim"])) // 3
+console.log(totalCaps(["hello", "world"])) // 0

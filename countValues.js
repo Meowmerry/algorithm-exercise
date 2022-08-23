@@ -10,15 +10,28 @@ countValues([], 1) // 0
 Input : Array and Num
 Output : Num
 */
+//==================== SOLOTION 1 =============================
 const countValues = (array, num, i = 0, count = 0) => {
   // base case : if array is empty return count
   if (!array[i]) return count;
   // if array at current element is equal to num , increment count
   if (array[i] === num) count += 1;
   // recuresively call and return countValues func and pass array, num, count
-  return countValues(array, num, i+1, count);
+  return countValues(array, num, i + 1, count);
 };
 
 console.log(countValues([4, 1, 4, 2, 3, 4, 4], 4)); // 4
 console.log(countValues([4, 1, 4, 2, 3, 4, 4], 100)); // 0
 console.log(countValues([], 1)); // 0
+
+//==================== SOLOTION 2 =============================
+const countValues2 = (array, num) => {
+  let count = 0;
+  for (const ele of array) {
+    if (ele === num) count += 1;
+  }
+  return count;
+};
+console.log(countValues2([4, 1, 4, 2, 3, 4, 4], 4)); // 4
+console.log(countValues2([4, 1, 4, 2, 3, 4, 4], 100)); // 0
+console.log(countValues2([], 1)); // 0

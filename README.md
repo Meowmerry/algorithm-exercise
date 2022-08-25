@@ -1,5 +1,6 @@
 # algorithm-exercise
-
+# To create type Script 
+tsc --init 
 ## Summary
 
 In this challenge you will be learning about how to approach problem to solving problems

@@ -19,10 +19,18 @@ const keys = (obj)=>{
     }
     return result
 }
-
-
 let obj = { a: 1, b: 2, c: 3 };
 console.log(keys(obj)); // ["a", "b", "c"]
+
+
+
+function keys(obj) {
+    return Object.keys(obj);
+
+}
+
+let obj1 = { a: 1, b: 2, c: 3 };
+console.log(keys(obj1)); // ["a", "b", "c"]
 
 let obj2 = { first: 'Matt', last: 'Lane' };
 console.log(keys(obj2)); // ["first", "last"]

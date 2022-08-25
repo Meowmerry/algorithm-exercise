@@ -12,6 +12,7 @@ const uniqueTriplets = (nums) => {
     // can't be the same as the previous value
     if (i > 0 && nums[i] === nums[i - 1]) {
       continue;
+      
     }
 
     let left = i + 1;

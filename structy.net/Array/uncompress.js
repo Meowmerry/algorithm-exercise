@@ -19,20 +19,125 @@ uncompress("3n12e2z"); // -> 'nnneeeeeeeeeeeezz'
 test_04:
 uncompress("127y"); // ->'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy 
 
+** Complexity  **
+  // todo with two pointers
+  // complextiy  n = # of groups
+  // m = max nubmer for any group;
+  // Time : O(nm)
+  // space : O(nm)
+
 */
 const uncompress = (s) => { // will user two pointers
     // todo
-    // declare result with empty string
-    let result = '';
-    // iterate thru input 
-    for(let i = 0 ;i<=s.length; i++){
-        // check if each string is a number
-        if() {
-            console.log('number', i)
+    const result = [];
+    const numbers = '0123456789';
+    let j = 0;
+    let i = 0;
+    while (j < s.length) {
+        if (numbers.includes(s[j])) {
+            j += 1;
+        } else {
+            const num = Number(s.slice(i, j));
+            for (let count = 0; count < num; count += 1) {
+                result.push(s[j]);
+            }
+            j += 1;
+            i = j
         }
-        // then concat character repete as number
     }
-    return result
-  };
+    return result.join('')
+};
+
+// console.log(uncompress("2c3a1t")); // -> 'ccaaat'
+console.log(uncompress("127y")); // -> 'yyyyyyyyy....'
+
+const uncompress1 = (s) => { // will user two pointers
+    // todo
+    let result = ''; // not effection should be array
+    const numbers = '0123456789';
+    let j = 0;
+    let i = 0;
+    while (j < s.length) {
+        if (numbers.includes(s[j])) {
+            j += 1;
+        } else {
+            const num = Number(s.slice(i, j));
+            for (let count = 0; count < num; count += 1) {
+                result += s[j]; // because we join string O space will be O(n) 
+            }
+            j += 1;
+            i = j
+        }
+    }
+    return result;
+};
+
+console.log(uncompress1("2c3a1t")); // -> 'ccaaat'
+
+
+function uncompress(compressedString) {
+    // Initialize empty string to store uncompressed string
+    let uncompressedString = "";
+
+    // Loop through each character in the compressed string
+    for (let i = 0; i < compressedString.length; i++) {
+        // Check if the current character is a digit
+        if (compressedString[i].match(/\d/)) {
+            // Extract the number following the digit (the number of repetitions)
+            let numRepetitions = "";
+            while (compressedString[i].match(/\d/)) {
+                numRepetitions += compressedString[i];
+                i++;
+            }
+            // Convert the number of repetitions to an integer
+            numRepetitions = parseInt(numRepetitions);
+
+            // Add the next character (the character to repeat) to the uncompressed string, repeated the specified number of times
+            for (let j = 0; j < numRepetitions; j++) {
+                uncompressedString += compressedString[i];
+            }
+        } else {
+            // If the current character is not a digit, add it to the uncompressed string as is
+            uncompressedString += compressedString[i];
+        }
+    }
+    return uncompressedString;
+}
+
+console.log(uncompress("2c3a1t")); // -> 'ccaaat'
+
+
+
+
+
+function uncompress(compressedString) {
+    // Initialize empty array to store uncompressed string
+    let uncompressedString = [];
+
+    // Loop through each character in the compressed string
+    for (let i = 0; i < compressedString.length; i++) {
+        // Check if the current character is a digit
+        if (compressedString[i].match(/\d/)) {
+            // console.log('digit-->', compressedString[i])
+            // Extract the number following the digit (the number of repetitions)
+            let numRepetitions = "";
+            while (compressedString[i].match(/\d/)) {
+                numRepetitions += compressedString[i];
+                i++;
+            }
+            // Convert the number of repetitions to an integer
+            numRepetitions = parseInt(numRepetitions);
+
+            // Add the next character (the character to repeat) to the uncompressed string, repeated the specified number of times
+            for (let j = 0; j < numRepetitions; j++) {
+                uncompressedString.push(compressedString[i]);
+            }
+        } else {
+            // If the current character is not a digit, add it to the uncompressed string as is
+            uncompressedString.push(compressedString[i]);
+        }
+    }
+    return uncompressedString.join('');
+}
 
 console.log(uncompress("2c3a1t")); // -> 'ccaaat'

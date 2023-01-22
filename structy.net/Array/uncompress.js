@@ -51,6 +51,19 @@ const uncompress = (s) => { // will user two pointers
 // console.log(uncompress("2c3a1t")); // -> 'ccaaat'
 console.log(uncompress("127y")); // -> 'yyyyyyyyy....'
 
+/* 
+This function uses a for loop to iterate through the compressed string. 
+It initializes an empty string variable, uncompressedString, to store the final uncompressed string,
+and a string variable, currentGroup, to store the current group being processed.
+
+The loop checks if the current character is not an open or closed parenthesis. 
+If it is not, it is added to the currentGroup variable. If it is an open parenthesis, the function extracts 
+the number of repetitions and the number of characters to repeat from the string using a nested while loop, and uses the repeat() 
+method to repeat the current group the specified number of times. The index of the for loop is then updated to the end of the group being processed.
+
+Finally, the uncompressedString variable is updated with the currentGroup and the function returns the uncompressed string.
+
+*/
 const uncompress1 = (s) => { // will user two pointers
     // todo
     let result = ''; // not effection should be array
@@ -73,7 +86,6 @@ const uncompress1 = (s) => { // will user two pointers
 };
 
 console.log(uncompress1("2c3a1t")); // -> 'ccaaat'
-
 
 function uncompress(compressedString) {
     // Initialize empty string to store uncompressed string

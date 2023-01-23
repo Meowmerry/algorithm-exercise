@@ -11,11 +11,11 @@ findTheDuplicate([2,1,3,4]) // undefined
 // ========= SOLUTION 1 =================
 const findTheDuplicate = (arr) => {
     const cache = {};
-    for(let i = 0 ; i < arr.length ; i ++){
-        if(arr[i] in cache) return arr[i]  
-        else cache[arr[i]] = arr[i]
+    for(const num of arr){
+      if(num in cache) return num;
+      else cache[num] = num;
     }
-  return;
+    return;
 }
 
 

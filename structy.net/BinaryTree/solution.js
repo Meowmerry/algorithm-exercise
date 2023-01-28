@@ -47,21 +47,33 @@ If the tree has 0 nodes or if the size of the branches are equal, return the emp
 //    console.log('right', right)
 // }
 
+
+// The function takes an array as input that represents a tree. 
 function solution(arr) {
-    if (!arr.length) return "";
+    // It first checks if the array is empty or not, in that case it will return an empty string. 
+    if (!arr.length) return ""; 
     let leftSum = 0,
         rightSum = 0;
+    //Then it uses a for loop to traverse the array, it starts from the first element of the array (which is the root), for each element of the array, 
     for (let i = 0; i < arr.length; i++) {
+        // if it has a left child it will add the value of the left child to leftSum 
+        // console.log('-->', 2 * i + 1)
         if (2 * i + 1 < arr.length) {
             leftSum += arr[2 * i + 1];
         }
+        // and if it has a right child it will add the value of the right child to rightSum. 
+        // console.log('-->', 2 * i + 2)
         if (2 * i + 2 < arr.length) {
             rightSum += arr[2 * i + 2];
         }
         if(arr[i] === 0) return ""
     }
+    console.log('- leftSum ->', leftSum)
+    console.log('- rightSum ->', rightSum)
+    // Finally, the function compares the leftSum and rightSum and returns 'Left' 
     if (leftSum > rightSum) {
         return "Left";
+    // if leftSum is greater, 'Right' if rightSum is greater, and an empty string if they are equal.
     } else if (rightSum > leftSum) {
         return "Right";
     } else {
@@ -69,5 +81,5 @@ function solution(arr) {
     }
 }
 
-// console.log(solution([3,6,2,9,-1,10]))
-console.log(solution([1, 10, 5, 1, 0, 6]))
+console.log(solution([3,6,2,9,-1,10]))
+// console.log(solution([1, 10, 5, 1, 0, 6]))

@@ -30,7 +30,7 @@ function solution(n) {
   return sum;
   
 }
-console.log(solution(26))
+console.log(solution(29))
 
 let input = 15
 output = Math.ceil(input/2) % 5 * 2

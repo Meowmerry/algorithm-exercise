@@ -1,5 +1,7 @@
 /* 
-Write a function that simulates the right shift function. Right shift is an operator that moves all binary bits in a number to the right, dropping the rightmost bit. Without using the right shift operator, write a function that will simulate it.
+Write a function that simulates the right shift function. 
+Right shift is an operator that moves all binary bits in a number to the right, 
+dropping the rightmost bit. Without using the right shift operator, write a function that will simulate it.
 
 Examples:
 
@@ -20,3 +22,10 @@ You may assume that the input will be a positive number
 function solution(arg1) {
 
 }
+function rightShift(arg1) {
+    return Math.floor(arg1 / 2);
+}
+console.log(rightShift(2))
+console.log(rightShift(4))
+console.log(rightShift(5))
+console.log(rightShift(7))

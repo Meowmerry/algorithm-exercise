@@ -34,8 +34,8 @@ const treeSum = (root) => {
   let sum = 0;
   let stack = [root];
   while (stack.length > 0) {
-    // const current = stack.pop(); Can use pop or shift
-    const current = stack.shift();
+    // const current = stack.pop(); // depth First
+    const current = stack.shift(); // breadth first
     sum += current.val;
 
     if (current.left !== null) stack.push(current.left);
@@ -44,10 +44,23 @@ const treeSum = (root) => {
   return sum;
 };
 
+// console.log(treeSum(a)); // -> 21
+/* 
+n = number of nodes
+Time: O(n)
+Space: O(n)
+
+*/
+const treeSumRecurrsive = (root) => {
+  if (root === null) return 0;
+  return root.val + treeSumRecurrsive(root.left) + treeSumRecurrsive(root.right)
+  
+};
+
 //       3
 //    /    \
 //   11     4
 //  / \      \
 // 4   -2     1
 
-console.log(treeSum(a)); // -> 21
+console.log(treeSumRecurrsive(a)); // -> 21

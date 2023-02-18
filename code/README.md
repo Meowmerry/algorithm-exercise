@@ -1,4 +1,4 @@
-# algorithm-exercise
+# Algorithm-exercise
 # To create type Script 
 tsc --init 
 ## Summary

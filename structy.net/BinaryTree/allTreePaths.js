@@ -9,6 +9,10 @@ but the relative order among paths in the outer array does not matter.
 
 You may assume that the input tree is non-empty.
 
+n = number of nodes
+Time: ~O(n)
+Space: ~O(n)
+
 */
 class Node {
   constructor(val) {

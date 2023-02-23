@@ -40,8 +40,9 @@ b.right = e;
 c.right = f;
 
 const breadthFirstValues = (root) => { // Can't do in Recurssive solution because Recursive under the hood will be Stack 
-  if (root === null) return result;
+
   const result = [];
+  if (root === null) return result;
   const queue = [root];
 
   while (queue.length > 0) {

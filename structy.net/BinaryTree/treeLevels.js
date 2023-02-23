@@ -50,7 +50,8 @@ const treeLevels = (root)=>{
     const {node, levelsNum} = queue.shift();
 
     if(levels.length === levelsNum){
-       levels[levelsNum] = [node.val]
+      //  levels[levelsNum] = [node.val]
+      levels.push([node.val])
     }else{
       levels[levelsNum].push(node.val)
     }
@@ -64,13 +65,39 @@ const treeLevels = (root)=>{
    return levels;
 }
 
-console.log(treeLevels(a)); // ->
+// console.log(treeLevels(a)); // ->
 // [
 //   ['a'],
 //   ['b', 'c'],
 //   ['d', 'e', 'f']
 // ]
 
+/* 
+dreadth first (iterative) --> queue
+n = number of nodes
+Time: O(n)
+Space: O(n)
+*/
+const treeLevelsDepth = (root) =>{
+  if(root === null) return [];
+  const levels = [];
+  const stack = [{node: root, levelNum : 0}];
+  while(stack.length > 0){
+
+    const {node, levelNum} = stack.pop();
+    if(levels.length === levelNum){
+        levels.push([node.val])
+    }else{
+        levels[levelNum].push(node.val)
+    }
+    if(node.right !== null) stack.push({node:node.right, levelNum : levelNum +1});
+    if(node.left !== null) stack.push({node:node.left, levelNum : levelNum +1});
+    
+  }
+
+  return levels;
+}
+console.log('depth -->', treeLevelsDepth(a)); // ->
 /* 
 dreadth first (Recursive) --> Stack
 n = number of nodes
@@ -98,4 +125,4 @@ const _treeLevelsRecurrsive = (root, levels, levelNum)=>{
 }
 
 
-console.log(treeLevelsRecurrsive(a)); // ->
+// console.log(treeLevelsRecurrsive(a)); // ->

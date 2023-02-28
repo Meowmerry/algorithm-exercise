@@ -1,0 +1,3 @@
+[submodule "unit-3-algorithms"]
+	path = unit-3-algorithms
+	url = git@github.com:CodesmithLLC/unit-3-algorithms.git

@@ -1,0 +1,23 @@
+{
+  "name": "precourse-part-3",
+  "version": "1.0.0",
+  "description": "Part 3 of the precourse is equipped with a JSON parser and exposure to a more complex web app, perhaps even a JS framework. We aspire you to be proficient in your JavaScript skills and become a better programmer through the process.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodesmithLLC/precourse-part-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodesmithLLC/precourse-part-3/issues"
+  },
+  "homepage": "https://github.com/CodesmithLLC/precourse-part-3#readme",
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  }
+}

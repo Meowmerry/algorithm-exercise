@@ -1,0 +1,106 @@
+/* body {
+	background: linear-gradient(-45deg, #c7ee79, #f2aec8, #b7e5f7, #000000);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+html {
+  height:100%;
+} */
+
+#head {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+#board {
+  height: 700px;
+  width: 700px;
+  border: 2px rgb(255, 255, 255) solid;
+  position: relative;
+  margin: auto;
+  background-image: url("./assets/bg.png");
+}
+
+#apple {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  border: 2px solid rgb(255, 0, 0);
+}
+
+#body {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 2px solid rgb(1, 63, 15);
+  position: absolute;
+}
+#title{
+ display: flex;
+ justify-content: center;
+}
+#text{
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 800;
+  background-color: rgb(88, 151, 240);
+  padding: 10px; 
+  width: 685px; 
+  border: 2px white solid;
+}
+
+
+html {
+	height: 100%;
+	background-color: hsla(200,40%,30%,.4);
+	background-image:		
+		url('https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png'), 
+		url('https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png'),
+		url('https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png'),
+		url('https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png'),
+		url('https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png'),
+		url('https://www.roadaffair.com/wp-content/uploads/2017/09/grand-teton-national-park-usa-shutterstock_392186992.jpg');
+	background-repeat: repeat-x;
+	background-position: 
+		0 20%,
+		0 100%,
+		0 50%,
+		0 100%,
+		0 0;
+	background-size: 
+		2500px,
+		800px,
+		500px 200px,
+		1000px,
+		400px 260px;
+	animation: 50s para infinite linear;
+	}
+
+/* @keyframes para {
+	100% {
+		background-position: 
+			-5000px 20%,
+			-800px 95%,
+			500px 50%,
+			1000px 100%,
+			400px 0;
+		}
+	} */

@@ -1,0 +1,18 @@
+Problem Solving
+#1. Understand  the problem
+
+
+#2. Explore concrete  examples
+Write a function which takes in  a string and  returns counts of each character in the string.
+
+หาตัวอย่างว่าถ้ากรณีนี้เราสามารถมีอะไรได้บ้าง
+charCount("aaaa") // {a:4}
+charCount("hello") // {h:1, e:i, l:2, o:1}
+
+คิดตัวอย่างว่า ถ้าเป็นแบบนี้หละ?? นับด้วยหรือไม่
+"my  phone number is 1234567"
+"Hello hi"  
+charCount("")   ?? if input valid ?? how should be output??
+
+
+#3. Break It Down

@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jquery": true,
+    "mocha": true
+  },
+  "extends": ["eslint:recommended"],
+  "plugins": ["mocha"],
+  "ignorePatterns": ["/test"],
+  "globals": {
+    "Head": "writable",
+    "Apple": "writable",
+    "Body": "writable"
+  },
+  "rules": {
+    "no-unused-vars": [0, { "vars": "local" }],
+    "no-redeclare": 0
+  }
+}

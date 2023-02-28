@@ -1,0 +1,23 @@
+{
+  "name": "precourse-part-2",
+  "version": "1.0.0",
+  "description": "In part 2 of the precourse, you will be doing more JavaScript challenges while building a copy of the \"Google\" page and a more complex layout as seen on Twitter's \"bootstrap\" page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodesmithLLC/precourse-part-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodesmithLLC/precourse-part-2/issues"
+  },
+  "homepage": "https://github.com/CodesmithLLC/precourse-part-2#readme",
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  }
+}

@@ -14,14 +14,14 @@ const edges = [
 ];
 
 const edges1 = [
-    ['b', 'a'],
-    ['c', 'a'],
-    ['b', 'c'],
-    ['q', 'r'],
-    ['q', 's'],
-    ['q', 'u'],
-    ['q', 't'],
-  ];
+  ['b', 'a'],
+  ['c', 'a'],
+  ['b', 'c'],
+  ['q', 'r'],
+  ['q', 's'],
+  ['q', 'u'],
+  ['q', 't'],
+];
 const undirectedPath = (edges, nodeA, nodeB) => {
 
 

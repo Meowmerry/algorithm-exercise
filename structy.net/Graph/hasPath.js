@@ -69,7 +69,7 @@ e = number edges
 Time: O(e)
 Space: O(n)
 */
-const hasPathBepth = (graph, src, dst) => {
+const hasPathBreadthFirst = (graph, src, dst) => {
   const queue = [src];
   while (queue.length) {
     const current = queue.shift();
@@ -81,5 +81,5 @@ const hasPathBepth = (graph, src, dst) => {
   return false;
 };
 
-// console.log(hasPathBepth(graph, "f", "k")); // true
-// console.log(hasPathBepth(graph1, "f", "j")); // false
+// console.log(hasPathBreadthFirst(graph, "f", "k")); // true
+// console.log(hasPathBreadthFirst(graph1, "f", "j")); // false

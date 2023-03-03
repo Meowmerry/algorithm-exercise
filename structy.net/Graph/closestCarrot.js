@@ -26,8 +26,8 @@ const closestCarrot = (grid, startRow, startCol) => {
             const neighborRow = row + deltaRow;
             const neighborCol = col + deltaCol;
             const neighborPosition = neighborRow + ',' + neighborCol;
-            const rowInbounds = 0 < neighborRow && neighborRow < grid.length;
-            const colInbounds = 0 < neighborCol && neighborCol < grid[0].length;
+            const rowInbounds = 0 <= neighborRow && neighborRow < grid.length;
+            const colInbounds = 0 <= neighborCol && neighborCol < grid[0].length;
             if (rowInbounds && colInbounds && !visited.has(neighborPosition) && grid[neighborRow][neighborCol] !== "X") {
                 visited.add(neighborPosition);
                 queue.push([neighborRow, neighborCol, distance + 1]);

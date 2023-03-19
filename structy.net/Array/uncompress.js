@@ -23,8 +23,8 @@ uncompress("127y"); // ->'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
   // todo with two pointers
   // complextiy  n = # of groups
   // m = max nubmer for any group;
-  // Time : O(nm)
-  // space : O(nm)
+  // Time : O(nm) will be n time m 
+  // space : O(nm) will be n time m 
 
 */
 const uncompress = (s) => { // will user two pointers
@@ -42,10 +42,10 @@ const uncompress = (s) => { // will user two pointers
                 result.push(s[j]);
             }
             j += 1;
-            i = j
+            i = j;
         }
     }
-    return result.join('')
+    return result.join('');
 };
 
 // console.log(uncompress("2c3a1t")); // -> 'ccaaat'
@@ -79,15 +79,19 @@ const uncompress1 = (s) => { // will user two pointers
                 result += s[j]; // because we join string O space will be O(n) 
             }
             j += 1;
-            i = j
+            i = j;
         }
     }
     return result;
 };
 
 console.log(uncompress1("2c3a1t")); // -> 'ccaaat'
-
-function uncompress(compressedString) {
+const uncompress = (compressedString) => {
+    // todo with two pointers
+    // complextiy  n = # of groups
+    // m = max nubmer for any group;
+    // Time : O(nm)
+    // space : O(nm)
     // Initialize empty string to store uncompressed string
     let uncompressedString = "";
 
@@ -114,7 +118,8 @@ function uncompress(compressedString) {
         }
     }
     return uncompressedString;
-}
+};
+
 
 console.log(uncompress("2c3a1t")); // -> 'ccaaat'
 
@@ -152,4 +157,25 @@ function uncompress(compressedString) {
     return uncompressedString.join('');
 }
 
+console.log(uncompress("2c3a1t")); // -> 'ccaaat'
+
+function uncompress(string) {
+    const result = [];
+    const numbers = '0123456789';
+    let j = 0;
+    let i = 0;
+    while (j < string.length) {
+        if (numbers.includes(string[j])) {
+            j += 1;
+        } else {
+            const nums = Number(string.slice(i, j));
+            for (let connt = 0; connt < nums; connt += 1) {
+                result.push(string[j]);
+            }
+            j += 1;
+            i = j;
+        }
+    }
+    return result.join('');
+}
 console.log(uncompress("2c3a1t")); // -> 'ccaaat'

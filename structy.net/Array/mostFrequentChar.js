@@ -33,10 +33,10 @@ function mostFrequentChar(s) {
     let maxChar = '';
     const charCount = {};
     for (const key of s) {
-        charCount[key] = (charCount[key] || 0) + 1
+        charCount[key] = (charCount[key] || 0) + 1;
     }
     for (const count in charCount) {
-        if(charCount[count] > maxCount){
+        if (charCount[count] > maxCount) {
             maxCount = charCount[count];
             maxChar = count;
         }
@@ -49,21 +49,19 @@ console.log(mostFrequentChar("david")); // -> 'd'
 console.log(mostFrequentChar("abby")); // -> 'b'
 console.log(mostFrequentChar("mississippi")); // -> 'i'
 
-
 /* ====== SOLUTION 2 ====== */
 function mostFrequentChar(str) {
-    const charCount = {};
-    let maxCount = 0;
-    let maxChar = '';
-    for (let i = 0; i < str.length; i++) {
-        if (charCount[str[i]] === undefined) {
-            charCount[str[i]] = 1;
-        } else {
-            charCount[str[i]]++;
+    const count = {};
+    for (const char of str) {
+        if (!(char in count)) {
+            count[char] = 0;
         }
-        if (charCount[str[i]] > maxCount) {
-            maxCount = charCount[str[i]];
-            maxChar = str[i];
+        count[char] += 1;
+    }
+    let maxChar = null;
+    for (const char of str) {
+        if (maxChar === null || count[char] > count[maxChar]) {
+            maxChar = char;
         }
     }
     return maxChar;
@@ -74,24 +72,27 @@ console.log(mostFrequentChar("david")); // -> 'd'
 console.log(mostFrequentChar("abby")); // -> 'b'
 console.log(mostFrequentChar("mississippi")); // -> 'i'
 
-/* ====== SOLUTION 3 ====== */
-function mostFrequentChar(str) {
-   const count = {};
-   for(const char of str){
-        if(!(char in count)){
-            count[char] = 0;
-        }
-        count[char] += 1;
-   }
-   let maxChar = null;
-   for(const char of str){
-        if(maxChar === null  || count[char] > count[maxChar]){
+/* ====== SOLUTION 4 ====== */
+const mostFrequentChar = (s) => {
+    if (!s.length) return '';
+    // initialize the cacheChar with new Map
+    // initialize the string result to return
+    // iterate through the s to store in  cacheChar
+
+    // iterate the string to get which value is frequent and return char
+    const freqChar = new Map();
+    for (const char of s) {
+        freqChar.set(char, (freqChar.get(char) || 0) + 1);
+    }
+
+    let maxChar = null;
+    for (const char of s) {
+        if (maxChar === null || freqChar.get(char) > freqChar.get(maxChar)) {
             maxChar = char;
         }
-   }
-   return maxChar;
-}
-
+    }
+    return maxChar;
+};
 console.log(mostFrequentChar("bookeeper")); // -> 'e'
 console.log(mostFrequentChar("david")); // -> 'd'
 console.log(mostFrequentChar("abby")); // -> 'b'

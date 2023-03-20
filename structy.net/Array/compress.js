@@ -45,13 +45,13 @@ const compress = (s) => {
             const num = j - i;
             // if num is equal to 1, push only string in result;
             if (num === 1) result.push(s[i]);
-            else result.push(String(num), s[i])
+            else result.push(String(num), s[i]);
 
             i = j;
         }
 
     }
-    return result.join('')
+    return result.join('');
 };
 console.log(compress('aaa')); // -> '3a'
 console.log(compress('ccaaatsss')); // -> '2c3at3s'
@@ -63,22 +63,22 @@ console.log(compress1('aaa')); // -> '3a'
 console.log(compress1('ccaaatsss')); // -> '2c3at3s'
 
 
-function compress(str){
+function compress(str) {
     const result = [];
     let i = 0;
     let j = 0;
-    while(j <= str.length){
-       
-        if(str[i] === str[j]) j+=1;
-        else{
+    while (j <= str.length) {
+
+        if (str[i] === str[j]) j += 1;
+        else {
             const num = j - i;
-            if(num ===1) result.push(str[i]);
+            if (num === 1) result.push(str[i]);
             else result.push(num, str[i]);
             i = j;
         }
-       
+
     }
-    return result.join('')
+    return result.join('');
 }
 console.log(compress("aabcccccaaa")); // should return "2a1b5c3a"
 console.log(compress("abcdefg")); // should return "abcdefg"
@@ -91,8 +91,8 @@ function compress(str) {
         if (str[i] === str[i + 1]) {
             count++;
         } else {
-            if(count === 1) compressed.push(str[i])
-            else compressed.push(count,str[i])
+            if (count === 1) compressed.push(str[i]);
+            else compressed.push(count, str[i]);
             count = 1;
         }
     }
@@ -102,3 +102,15 @@ function compress(str) {
 console.log(compress("aabcccccaaa")); // should return "2a1b5c3a"
 console.log(compress("abcdefg")); // should return "abcdefg"
 console.log(compress("aaaabbbbcccc")); // should return "4a4b4c"
+
+
+const compress2 = (s) => {
+    // Time: O(n)  Space: O(n)
+    const result = [];
+
+};
+
+console.log(compress2("aabcccccaaa")); // should return "2a1b5c3a"
+console.log(compress2("abcdefg")); // should return "abcdefg"
+console.log(compress2("aaaabbbbcccc")); // should return "4a4b4c"
+

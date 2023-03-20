@@ -67,15 +67,24 @@ so the function returns true.
 */
 /*    ==== SOLUTION 1 ==== */
 function anagrams(str1, str2) {
-    if (str1.length !== str2.length) return;
+    // ==== SOLUTION 1 ====
+    // first check if two string are the same length, if not return false
+    if (s1.length !== s2.length) return false;
+    // declare charCount1 and charCount2 with emptye object for storing KEY, Value pair
     const charCount1 = {};
     const charCount2 = {};
-    for (const char of str1) {
-        charCount1[char] = (charCount1[char] || 0) + 1;
+
+    // loop through two both string to assign KEY, Value 
+    // give a key value to charCount, if count to 1 if the character has not been encountered before.
+    for (let i = 0; i < s1.length; i += 1) {
+        charCount1[s1[i]] = (charCount1[s1[i]] || 0) + 1;
+
     }
-    for (const char of str2) {
-        charCount2[char] = (charCount2[char] || 0) + 1;
+
+    for (let i = 0; i < s2.length; i += 1) {
+        charCount2[s2[i]] = (charCount2[s2[i]] || 0) + 1;
     }
+
     for (const key in charCount1) {
         if (charCount1[key] !== charCount2[key]) return false;
     }
@@ -147,6 +156,29 @@ function anagrams(s1, s2) {
     return true;
 }
 
+console.log(anagrams("restful", "fluster")); // -> true
+console.log(anagrams("cats", "tocs")); // -> false
+console.log(anagrams("monkeyswrite", "newyorktimes")); // -> true
+
+
+const anagrams = (s1, s2) => {
+    if (s1.length !== s2.length) return false;
+    const charS1 = new Map();
+    const charS2 = new Map();
+    for (const char of s1) {
+        charS1.set(char, (charS1.get(char) || 0) + 1);
+    }
+
+    for (const char of s2) {
+        charS2.set(char, (charS2.get(char) || 0) + 1);
+    }
+    for (const [key, value] of charS1) {
+        if (value !== charS2.get(key, value)) return false;
+    }
+
+    return true;
+
+};
 console.log(anagrams("restful", "fluster")); // -> true
 console.log(anagrams("cats", "tocs")); // -> false
 console.log(anagrams("monkeyswrite", "newyorktimes")); // -> true

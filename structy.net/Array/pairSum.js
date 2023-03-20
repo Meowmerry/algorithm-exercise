@@ -43,14 +43,14 @@ Time: O(n2)
 Space: O(1)
 */
 function pairSum(numbers, targetSum) {
-    for(let i = 0 ; i < numbers.length ; i +=1){
-        for(let j = i + 1 ; j < numbers.length ; j+=1 ){
-            if(numbers[i] + numbers[j] === targetSum){
-                return [i,j]
+    for (let i = 0; i < numbers.length; i += 1) {
+        for (let j = i + 1; j < numbers.length; j += 1) {
+            if (numbers[i] + numbers[j] === targetSum) {
+                return [i, j];
             }
         }
     }
-    
+
 }
 console.log(pairSum([3, 2, 5, 4, 1], 8)); // -> [0, 2]
 console.log(pairSum([4, 7, 9, 2, 5, 1], 5)); // -> [0, 5]
@@ -68,19 +68,18 @@ function pairSum(numbers, targetSum) {
     //     const num = numbers[i];
     //     const complement = targetSum - num;
     //     if(complement in previousNums) {
-    //         return [i, previousNums[complement]];
+    //         return [previousNums[complement],i];
     //     }
     //     previousNums[num] = i;
     // }
 
     const previousNums = {};
     for (let i = 0; i < numbers.length; i += 1) {
-      const num = numbers[i];
-      const complement = targetSum - num;
-      if (complement in previousNums) return [previousNums[complement], i];
-      previousNums[num] = i;
+        const num = numbers[i];
+        const complement = targetSum - num;
+        if (complement in previousNums) return [previousNums[complement], i];
+        previousNums[num] = i;
     }
-    
 }
 console.log(pairSum([3, 2, 5, 4, 1], 8)); // -> [0, 2]
 console.log(pairSum([4, 7, 9, 2, 5, 1], 5)); // -> [0, 5]

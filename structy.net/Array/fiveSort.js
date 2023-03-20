@@ -35,16 +35,16 @@ fiveSort(nums);
 const fiveSort = (nums) => {
     // todo
     const newArr = [];
-    const arrFive = []
+    const arrFive = [];
     for (const num of nums) {
         if (num !== 5) {
-            newArr.push(num)
+            newArr.push(num);
         } else {
-            arrFive.push(num)
+            arrFive.push(num);
         }
     }
-    return newArr.concat(arrFive)
-}
+    return newArr.concat(arrFive);
+};
 function fiveSort(arr) {
     let count = 0;
     for (let i = 0; i < arr.length; i++) {
@@ -59,6 +59,10 @@ function fiveSort(arr) {
     }
     return arr;
 }
+console.log(fiveSort([12, 1, 12, 7]));// -> [12, 7, 1, 12, 5, 5] 
+console.log(fiveSort([12, 5, 1, 5, 12, 7]));// -> [12, 7, 1, 12, 5, 5] 
+console.log(fiveSort([5, 2, 5, 6, 5, 1, 10, 2, 5, 5])); // -> [2, 2, 10, 6, 1, 5, 5, 5, 5, 5] 
+console.log(fiveSort([5, 5, 5, 1, 1, 1, 4])); // -> [4, 1, 1, 1, 5, 5, 5] 
 
 /*
 n = array size
@@ -74,10 +78,10 @@ function fiveSort(nums) {
         // if element at lastIndex is equal to 5, then decrement lastIndex
         if (nums[j] === 5) {
             j -= 1;
-        } else if (nums[i] === 5) {// else if the first element is equal to 5, than swap elemtn between
-            [nums[i], nums[j]] = [nums[j], nums[i]]
+        } else if (nums[i] === 5) {// else if the first element is equal to 5, than swap element between
+            [nums[i], nums[j]] = [nums[j], nums[i]];
         } else { // else increment first index
-            i += 1
+            i += 1;
         }
     }
     return nums;

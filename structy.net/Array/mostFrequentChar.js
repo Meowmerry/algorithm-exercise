@@ -97,3 +97,25 @@ console.log(mostFrequentChar("bookeeper")); // -> 'e'
 console.log(mostFrequentChar("david")); // -> 'd'
 console.log(mostFrequentChar("abby")); // -> 'b'
 console.log(mostFrequentChar("mississippi")); // -> 'i'
+
+
+const mostFrequentChar = (s) => {
+    const mostFreqChar = {};
+    let mostChar = null;
+    for (const char of s) {
+        mostFreqChar[char] = (mostFreqChar[char] || 0) + 1;
+    }
+
+    for (const char of s) {
+        if (mostChar === null || mostFreqChar[char] > mostFreqChar[mostChar]) {
+            mostChar = char;
+        }
+
+    }
+    return mostChar;
+};
+
+console.log(mostFrequentChar("bookeeper")); // -> 'e'
+console.log(mostFrequentChar("david")); // -> 'd'
+console.log(mostFrequentChar("abby")); // -> 'b'
+console.log(mostFrequentChar("mississippi")); // -> 'i'

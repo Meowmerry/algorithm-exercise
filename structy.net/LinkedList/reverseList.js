@@ -5,7 +5,7 @@ The function should reverse the order of the nodes in the linked list in-place
 and return the new head of the reversed linked list.
 */
 
-class Node{
+class Node {
     constructor(val) {
         this.val = val;
         this.next = null;
@@ -16,17 +16,17 @@ const reverseList = (head) => {
     // todo
     let current = head;
     let prev = null;
-    while(current !== null){
-        
+    while (current !== null) {
+
         const next = current.next;
         current.next = prev;
         prev = current;
         current = next;
     }
     return prev;
-   
+
 };
-  
+
 const a = new Node("a");
 const b = new Node("b");
 const c = new Node("c");

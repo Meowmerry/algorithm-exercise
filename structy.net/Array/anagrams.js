@@ -66,7 +66,7 @@ If the function has not returned false by this point, it means that the two stri
 so the function returns true.
 */
 /*    ==== SOLUTION 1 ==== */
-function anagrams(str1, str2) {
+function anagrams(s1, s2) {
     // ==== SOLUTION 1 ====
     // first check if two string are the same length, if not return false
     if (s1.length !== s2.length) return false;

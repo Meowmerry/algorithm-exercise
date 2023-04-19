@@ -53,44 +53,54 @@ m = length of list 2
 need manay iteration of the short length, the less step will be O(1)
 We do not need to iterate all with both lists
 
-Space: O(1) because we not actually creating any new nodes, We're simply a rerouting all of these next pointers and next pointer 
+Space: O(1) because we not actually creating any new nodes, 
+We're simply a rerouting all of these next pointers and next pointer 
 */
-// function  zipperLists (head1, head2) {
-//     // create new head to refer to the head 1
-//     const head = head1;
-//     // create new tail to referance to head, and will keep track of new tail each time travers through the node
-//     let tail = head;
-//     // create the first pointer current 1 refer to head.next
-//     let current1 = head1.next;
-//     // create the second pointer current 2 refer to head 2, and will keep track 
-//     let current2 = head2;
-//     // create the count to keep track each time the node iteratation through node
-//     let count = 0;
+function zipperLists(head1, head2) {
+    // create new head to refer to the head 1
+    const head = head1;
+    // create new tail to referance to head, and will keep track of new tail each time travers through the node
+    let tail = head;
+    // create the first pointer current 1 refer to head.next
+    let current1 = head1.next;
+    // create the second pointer current 2 refer to head 2, and will keep track 
+    let current2 = head2;
+    // create the count to keep track each time the node iteratation through node
+    let count = 0;
 
-//     // while iteration through two pointer, current1 and current2 are not null
-//     while (current1 !== null && current2 !== null) {
-//         // check if count is even number
-//         if (count % 2 === 0) {
-//             tail.next = current2;
-//             current2 = current2.next;
-//         } else {
-//             tail.next = current1;
-//             current1 = current1.next;
-//         }
-//         // traverse through node by move the tail to next tail
-//         tail = tail.next;
-//         // increment count by 1
-//         count += 1;
-//     }
+    // while iteration through two pointer, current1 and current2 are not null
+    while (current1 !== null && current2 !== null) {
+        // check if count is even number
+        if (count % 2 === 0) {
+            tail.next = current2;
+            current2 = current2.next;
+        } else {
+            tail.next = current1;
+            current1 = current1.next;
+        }
+        // traverse through node by move the tail to next tail
+        tail = tail.next;
+        // increment count by 1
+        count += 1;
+    }
 
-//     // if both head is not the same length, need to handle by add the rest of the node to the list
-//     if (current1 !== null) tail.next = current1;
-//     if (current2 !== null) tail.next = current2;
+    // if both head is not the same length, need to handle by add the rest of the node to the list
+    if (current1 !== null) tail.next = current1;
+    if (current2 !== null) tail.next = current2;
 
-//     // return head
-//     return head;
+    // return head
+    return head;
 
-// };
+};
+
+
+/*
+n = length of list 1
+m = length of list 2
+Time: O(min(n, m))
+Space: O(min(n, m))
+
+*/
 function zipperLists(head1, head2) {
     if (head1 === null && head2 === null) {
         return null;

@@ -26,13 +26,43 @@ d.next = e;
 e.next = f;
 
 // 5 -> 5 -> 7 -> 7 -> 7 -> 6
-const x = new Node(4);
-// 4 
+const x = new Node(5);
+const z = new Node(5);
+x.next = z;
 
+// 5 -> 5
+
+/*
+n = number of nodes
+Time: O(n)
+Space: O(1)
+*/
 const longestStreak = (head) => {
-    // todo
-};
+    let currentNode = head;
+    let preveValue = null;
+    let maxStreak = 0;
+    let currentStreak = 0;
 
-console.log(longestStreak(x)); // 1
+    while (currentNode) {
+        // check if currentNodeValue is equal to preveValue, will increment currentStreak by1
+        if (currentNode.val === preveValue) {
+            currentStreak += 1;
+        } else { // otherwise set currentStreak back to 1
+            currentStreak = 1;
+        }
+
+        // compare if currentStreak is grather than maxStreak, update maxStreak to currentStreak
+        if (currentStreak > maxStreak) {
+            maxStreak = currentStreak;
+        }
+
+        // move each node, move preveValue to current.val
+        preveValue = currentNode.val;
+        // move current to current.next
+        currentNode = currentNode.next;
+    }
+    return maxStreak;
+};
 console.log(longestStreak(a)); // 3
+console.log(longestStreak(x)); // 2
 console.log(longestStreak(null)); // 0

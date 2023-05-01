@@ -69,9 +69,35 @@ const isUnivalueList = (head, prev = null) => {
         return false;
     }
 };
+
+// Using Hash Map 
+const isUnivalueList = (head) => {
+    const mapSet = new Map();
+    let current = head;
+    let prev = null;
+
+    while (current) {
+        prev = current;
+
+        if (current.val === prev.val) {
+            mapSet.set(current.val, (mapSet.get(current.val) || 0) + 1);
+        }
+        current = current.next;
+    }
+
+    return mapSet.size === 1;
+
+};
 */
+const isUnivalueList = (head, prev = null) => {
+    if (head === null) return true;
+    if (prev === null || head.val === prev) {
+        return isUnivalueList(head.next, head.val);
+    } else {
+        return false;
+    }
 
-
+};
 
 console.log(isUnivalueList(a)); // true
 console.log(isUnivalueList(u)); // false

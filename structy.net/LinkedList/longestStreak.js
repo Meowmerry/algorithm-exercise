@@ -63,6 +63,27 @@ const longestStreak = (head) => {
     }
     return maxStreak;
 };
+
+
 console.log(longestStreak(a)); // 3
 console.log(longestStreak(x)); // 2
 console.log(longestStreak(null)); // 0
+
+const longestStreakRecursive = (head, maxStreak = 0, currStreak = 0, prevVal = null) => {
+    if (!head) return maxStreak;
+    if (head.val === prevVal) {
+        currStreak += 1;
+    } else {
+        currStreak = 1;
+    }
+    if (currStreak > maxStreak) maxStreak = currStreak;
+    prevVal = head.val;
+    return longestStreakRecursive(head.next, maxStreak, currStreak, prevVal);
+};
+
+
+
+
+console.log(longestStreakRecursive(a)); // 3
+console.log(longestStreakRecursive(x)); // 2
+console.log(longestStreakRecursive(null)); // 0

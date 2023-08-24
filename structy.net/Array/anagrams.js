@@ -182,3 +182,16 @@ const anagrams = (s1, s2) => {
 console.log(anagrams("restful", "fluster")); // -> true
 console.log(anagrams("cats", "tocs")); // -> false
 console.log(anagrams("monkeyswrite", "newyorktimes")); // -> true
+
+function anagrams(s1, s2) {
+    const countStr = new Map();
+    for (const s of s1) {
+
+    }
+}
+
+
+console.log(anagrams('monkeyswrite', 'newyorktimes'));
+console.log(anagrams("restful", "fluster")); // -> true
+console.log(anagrams("cats", "tocs")); // -> false
+console.log(anagrams("monkeyswrite", "newyorktimes")); // -> true

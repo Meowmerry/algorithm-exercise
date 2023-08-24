@@ -105,8 +105,15 @@ console.log(compress("aaaabbbbcccc")); // should return "4a4b4c"
 
 
 const compress2 = (s) => {
-    // Time: O(n)  Space: O(n)
-    const result = [];
+    const numInStr = new Map();
+    const result = 0;
+    for (const char of s) {
+        numInStr.set(char, (numInStr.get(char) || 0) + 1);
+    }
+
+    for (const [key, value] of numInStr) {
+        console.log('value', value);
+    }
 
 };
 

@@ -161,21 +161,16 @@ console.log(uncompress("2c3a1t")); // -> 'ccaaat'
 
 function uncompress(string) {
     const result = [];
-    const numbers = '0123456789';
-    let j = 0;
-    let i = 0;
-    while (j < string.length) {
-        if (numbers.includes(string[j])) {
-            j += 1;
+    let numChar = '';
+    for (const char of string) {
+        if (!isNaN(char)) { // count the number in string 
+            numChar += char;
         } else {
-            const nums = Number(string.slice(i, j));
-            for (let connt = 0; connt < nums; connt += 1) {
-                result.push(string[j]);
-            }
-            j += 1;
-            i = j;
+            result.push(char.repeat(Number(numChar)));
+            numChar = '';
         }
     }
-    return result.join('');
+    return result.join("");
 }
-console.log(uncompress("2c3a1t")); // -> 'ccaaat'
+console.log(uncompress("2c3a1t")); // Output: 'ccaaat'
+console.log(uncompress("4s2b")); // Output: 'ssssbb'

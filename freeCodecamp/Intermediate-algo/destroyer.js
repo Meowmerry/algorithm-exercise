@@ -13,7 +13,7 @@ function destroyer(arr, ...valRemove) {
 }
 
 /* ====== Solution 1.1 ======  */
-const destroyer = (arr, ...val) => arr.filter(ele => !val.includes(ele))
+const destroyer = (arr, ...val) => arr.filter(ele => !val.includes(ele));
 
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); // [1, 1]
@@ -66,7 +66,14 @@ console.log(destroyer4([1, 2, 3, 5, 1, 2, 3], 2, 3)); // [1, 5, 1]
 console.log(destroyer4(["tree", "hamburger", 53], "tree", 53)); // ["hamburger"]
 
 /* ====== Solution 5 with Arrow function ======  */
-const destroyer5 = (...arr) =>  arr[0].filter(ele=> !arr.slice(1).includes(ele))
+const destroyer5 = (...arr) => arr[0].filter(ele => !arr.slice(1).includes(ele));
 console.log(destroyer5([1, 2, 3, 1, 2, 3], 2, 3)); // [1, 1]
 console.log(destroyer5([1, 2, 3, 5, 1, 2, 3], 2, 3)); // [1, 5, 1]
 console.log(destroyer5(["tree", "hamburger", 53], "tree", 53)); // ["hamburger"]
+
+function destroyer(arr, ...remove) {
+  return arr.filter(ele => !remove.includes(ele));
+}
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); // [1, 1]
+console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3)); // [1, 5, 1]
+console.log(destroyer(["tree", "hamburger", 53], "tree", 53)); // ["hamburger"]

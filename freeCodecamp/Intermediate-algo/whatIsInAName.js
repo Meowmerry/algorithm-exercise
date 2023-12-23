@@ -13,17 +13,64 @@ because it contains the name and its value, that was passed on as the second arg
 function whatIsInAName(collection, source) {
     const arr = [];
     // Only change code below this line
-    for(let i = 0 ; i < collection.length ; i++){
+    for (let i = 0; i < collection.length; i++) {
         const curr = collection[i];
         const obj = Object.values(curr);
-        for(const key in source){
-            if(obj.includes(source[key])){
-               arr.push(curr)
+        for (const key in source) {
+            if (obj.includes(source[key])) {
+                arr.push(curr);
             };
         }
     }
     // Only change code above this line
     return arr;
-  }
-  
-console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" })); //[{ first: "Tybalt", last: "Capulet" }]
+}
+// console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], 
+// { last: "Capulet" })); //[{ first: "Tybalt", last: "Capulet" }]
+
+
+function whatIsInAName(collection, source) {
+    // use an array variable to store found objects
+    const found = [];
+
+    // search through collection for objects that match any in the source array
+    for (const currentObj of collection) {
+
+        // if any of the keys are not in the collection object
+        // we will change this to false
+        let match = true;
+
+        // loop over the source object's keys
+        for (let key in source) {
+            // must have the same keys and same values
+            if (currentObj[key] !== source[key]) {
+                // does not have key or same value
+                // set match to false and exit this loop immediately
+                match = false;
+                continue;
+            }
+        }
+
+        // add found objects to found variable
+        if (match) found.push(currentObj);
+    }
+
+    // return array of found objects or empty array
+    return found;
+}
+// console.log(whatIsInAName([
+//     { first: "Romeo", last: "Montague" },
+//     { first: "Mercutio", last: null },
+//     { first: "Tybalt", last: "Capulet" }],
+//     { last: "Capulet" })); //[{ first: "Tybalt", last: "Capulet" }]
+
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }));
+// [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }]
+
+
+
+function whatIsInAName(collection, source) {
+    const keyVals = Object.entries(source);
+
+    return collection.filter(obj => keyVals.every(([key, val]) => obj[key] === val));
+}

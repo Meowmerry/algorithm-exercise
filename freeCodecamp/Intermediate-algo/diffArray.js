@@ -72,30 +72,30 @@ console.log(diffArray3([1, "calf", 3, "piglet"], [1, "calf", 3, 4])); //  ["pigl
 /* ====== Solution 4 ======  */
 function diffArray4(arr1, arr2) {
     const union = [];
-    for(const el of arr1){
-        if(!union.includes(el)){
-            union.push(el)
+    for (const el of arr1) {
+        if (!union.includes(el)) {
+            union.push(el);
         }
     }
-    for(const el of arr2){
-        if(!union.includes(el)){
-            union.push(el)
+    for (const el of arr2) {
+        if (!union.includes(el)) {
+            union.push(el);
         }
     }
-   
+
     const newArr = [];
-    for(const currEle of union){
-        if(arr1.includes(currEle) && !arr2.includes(currEle)){
-            newArr.push(currEle)
-        }else if(!arr1.includes(currEle) && arr2.includes(currEle)){
-            newArr.push(currEle)
+    for (const currEle of union) {
+        if (arr1.includes(currEle) && !arr2.includes(currEle)) {
+            newArr.push(currEle);
+        } else if (!arr1.includes(currEle) && arr2.includes(currEle)) {
+            newArr.push(currEle);
         }
     }
 
     return newArr;
 }
 
-console.log(diffArray4([1, 2, 3, 5,6], [1, 2, 3, 4, 5])); //[6,4]
+console.log(diffArray4([1, 2, 3, 5, 6], [1, 2, 3, 4, 5])); //[6,4]
 console.log(
     diffArray4(
         ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"],
@@ -107,11 +107,11 @@ console.log(diffArray4([1, "calf", 3, "piglet"], [1, "calf", 3, 4])); //  ["pigl
 
 /* ====== Solution 5 ======  */
 function diffArray5(arr1, arr2) {
-    const union =  new Set([...arr1, ...arr2]);
+    const union = new Set([...arr1, ...arr2]);
     const result = [];
-    for(const currEle of union){
-        if(arr1.includes(currEle) && !arr2.includes(currEle)) result.push(currEle);
-        else if(!arr1.includes(currEle) && arr2.includes(currEle))  result.push(currEle);
+    for (const currEle of union) {
+        if (arr1.includes(currEle) && !arr2.includes(currEle)) result.push(currEle);
+        else if (!arr1.includes(currEle) && arr2.includes(currEle)) result.push(currEle);
     }
     return result;
 }
@@ -127,4 +127,56 @@ console.log(
 console.log(diffArray5([1, "calf", 3, "piglet"], [1, "calf", 3, 4])); //  ["piglet", 4]
 
 
+function diffArray(arr1, arr2) {
+    const newArr = [];
+    const mergeArr = [...arr1, ...arr2];
+    const unique = {};
+    for (const element of mergeArr) {
+        if (!unique[element]) {
+            unique[element] = 0;
+        }
+        unique[element] += 1;
 
+    }
+    // console.log(unique);
+    for (const key in unique) {
+        const value = unique[key];
+        if (value === 1) {
+            newArr.push((key));
+        }
+    }
+
+    return newArr;
+}
+
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])); // [4]
+console.log(diffArray([1, "calf", 3, "piglet"], [1, "calf", 3, 4])); //  ["piglet", 4]
+
+
+
+
+
+function diffArray(arr1, arr2) {
+    const newArr = [];
+    const mergeArr = [...arr1, ...arr2];
+    const unique = new Map();
+    for (const element of mergeArr) {
+        if (!unique.get(element)) {
+            unique.set(element, 1);
+        } else {
+            unique.set(element, unique.get(element) + 1);
+        }
+
+    }
+
+    for (const [key, value] of unique.entries()) {
+        if (value === 1) {
+            newArr.push(key);
+        }
+    }
+
+    return newArr;
+}
+
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])); // [4]
+console.log(diffArray([1, "calf", 3, "piglet"], [1, "calf", 3, 4])); //  ["piglet", 4]

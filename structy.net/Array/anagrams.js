@@ -184,14 +184,24 @@ console.log(anagrams("cats", "tocs")); // -> false
 console.log(anagrams("monkeyswrite", "newyorktimes")); // -> true
 
 function anagrams(s1, s2) {
-    const countStr = new Map();
+    const letterMap = new Map();
     for (const s of s1) {
-
+        letterMap.set(s, (letterMap.get(s) || 0) + 1);
     }
+
+    for (const s of s2) {
+        if (letterMap.has(s) && letterMap.get(s) > 0) {
+            // console.log(letterMap);
+            letterMap.set(s, letterMap.get(s) - 1);
+        } else {
+            return false;
+        }
+    }
+    return true;
 }
 
 
-console.log(anagrams('monkeyswrite', 'newyorktimes'));
-console.log(anagrams("restful", "fluster")); // -> true
+// console.log(anagrams('monkeyswrite', 'newyorktimes'));
+// console.log(anagrams("restful", "fluster")); // -> true
 console.log(anagrams("cats", "tocs")); // -> false
-console.log(anagrams("monkeyswrite", "newyorktimes")); // -> true
+// console.log(anagrams("monkeyswrite", "newyorktimes")); // -> true

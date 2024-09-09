@@ -48,16 +48,62 @@ nums is sorted in non-decreasing order.
 
 
 
+// var removeDuplicates = function (nums) {
+//     if (nums.length === 0) return 0;
+//     let i = 0;
+//     for (let j = 1; j < nums.length; j += 1) {
+//         if (nums[j] !== nums[i]) {
+//             i += 1;
+//             nums[i] = nums[j];
+//         }
+//     }
+//     return i + 1;
+// };
+// console.log(removeDuplicates([1, 1, 2]));
+// console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+
+
+// var removeDuplicates = function (nums) {
+//     if (nums.length === 0) return 0;
+//     const numsSet = new Set(nums);
+//     return [...numsSet].length;
+// };
+// console.log(removeDuplicates([1, 1, 2])); //  2
+// console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])); // 5
+
+/* [1, 1, 2]
+ i = 0
+ j = 1
+ nums[i] = 1
+ nums[j] = 1
+
+ i = 0
+ j+1 = 1
+
+ nums[i] = 1
+ nums[j] = 1
+ i = 0
+ j = 2
+
+ nums[i] = 1
+ nums[j] = 0
+ i = 1
+ j = 3
+*/
 var removeDuplicates = function (nums) {
     if (nums.length === 0) return 0;
     let i = 0;
-    for (let j = 1; j < nums.length; j += 1) {
-        if (nums[j] !== nums[i]) {
-            i += 1;
+    let j = 1;
+    while (j < nums.length) {
+        if (nums[i] !== nums[j]) {
+            i++;
             nums[i] = nums[j];
+
         }
+        j++;
     }
     return i + 1;
 };
-console.log(removeDuplicates([1, 1, 2]));
-console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+console.log(removeDuplicates([1, 1, 2])); //  2
+console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])); // 5
+

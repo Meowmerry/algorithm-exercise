@@ -1,11 +1,15 @@
 /*
 26. Remove Duplicates from Sorted Array
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150
 
-Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. 
+The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
 
 Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
 
-Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. 
+The remaining elements of nums are not important as well as the size of nums.
 Return k.
 Custom Judge:
 
@@ -25,7 +29,6 @@ If all assertions pass, then your solution will be accepted.
  
 
 Example 1:
-
 Input: nums = [1,1,2]
 Output: 2, nums = [1,2,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
@@ -43,42 +46,33 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
+
+
+🔎 EXPLORE
+What are some other insightful & revealing test cases?
+
+🧠 BRAINSTORM
+Time: 
+Space: 
+
+
+📆 PLAN
+
+
+🛠️ IMPLEMENT
+
 */
 
 
-
-
-// var removeDuplicates = function (nums) {
-//     if (nums.length === 0) return 0;
-//     let i = 0;
-//     for (let j = 1; j < nums.length; j += 1) {
-//         if (nums[j] !== nums[i]) {
-//             i += 1;
-//             nums[i] = nums[j];
-//         }
-//     }
-//     return i + 1;
-// };
-// console.log(removeDuplicates([1, 1, 2]));
-// console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
-
-
-// var removeDuplicates = function (nums) {
-//     if (nums.length === 0) return 0;
-//     const numsSet = new Set(nums);
-//     return [...numsSet].length;
-// };
-// console.log(removeDuplicates([1, 1, 2])); //  2
-// console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])); // 5
-
-/* [1, 1, 2]
+/* 
+[1, 1, 2]
  i = 0
  j = 1
  nums[i] = 1
  nums[j] = 1
 
  i = 0
- j+1 = 1
+ j+1 = 2
 
  nums[i] = 1
  nums[j] = 1
@@ -90,6 +84,7 @@ nums is sorted in non-decreasing order.
  i = 1
  j = 3
 */
+
 var removeDuplicates = function (nums) {
     if (nums.length === 0) return 0;
     let i = 0;
@@ -102,6 +97,7 @@ var removeDuplicates = function (nums) {
         }
         j++;
     }
+    console.log({ nums }); // [ 1, 2, 2 ] [1,2]
     return i + 1;
 };
 console.log(removeDuplicates([1, 1, 2])); //  2

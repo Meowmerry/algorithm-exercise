@@ -32,36 +32,7 @@ s and t consist of lowercase English letters.
 // }
 
 function isAnagram(s, t) {
-    // check if length not the same return false
-    if (s.length !== t.length) return false;
-    // Create two object, sMap and tMap
-    const sMap = new Map();
-    const tMap = new Map();
 
-    // company each map to each other
-    // Iterate throuth the s
-    // build tMap on Key: letter, Value: Number 1++
-    for (const char of s) {
-        //  sMap.set(char, (sMap.get(char)|| 0 ) + 1);
-        if (sMap.get(char)) {
-            sMap.set(char, sMap.get(char) + 1);
-        } else {
-            tMap.set(char, 1);
-        }
-        //  tMap.set(char, (tMap.get(char)|| 0 ) + 1);
-        if (tMap.get(char)) {
-            tMap.set(char, tMap.get(char) + 1);
-        } else {
-            tMap.set(char, 1);
-        }
-    }
-
-    for (const [key, value] of sMap) {
-        if (value !== tMap.get(key)) {
-            return false;
-        }
-    }
-    return true;
 
 }
 console.log(isAnagram("racecar", "carrace"));

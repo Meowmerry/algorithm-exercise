@@ -32,14 +32,43 @@ All the numbers of nums are unique.
 
 // 
 
+// var missingNumber = function (nums) {
+//     // find the expectedSum 
+//     const n = nums.length;
+//     const expectedSum = (n * (n + 1) / 2);
+//     // find the actualSum 
+//     const actualSum = nums.reduce((a, b) => a + b, 0);
+//     return expectedSum - actualSum;
+// };
+// function missingNumber(nums) {
+//     let res = nums.length;
+//     for (let i = 0; i < nums.length; i++) {
+//         res += i - nums[i];
+//         console.log(res);
+//     }
+//     return res;
+// }
+
 var missingNumber = function (nums) {
-    // find the expectedSum 
+    nums.sort((a, b) => a - b);
     const n = nums.length;
-    const expectedSum = (n * (n + 1) / 2);
-    // find the actualSum 
-    const actualSum = nums.reduce((a, b) => a + b, 0);
-    return expectedSum - actualSum;
+
+    // Case 1
+    if (nums[0] !== 0) return 0;
+
+    // Case 2
+    if (nums[n - 1] !== n) return n;
+
+    // Case 3
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== i) return i;
+    }
+
+    return 0;
 };
-console.log(missingNumber([3, 0, 1])); // 2
-console.log(missingNumber([0, 1])); // 2
+
+
+
+// console.log(missingNumber([3, 0, 1])); // 2
+// console.log(missingNumber([0, 1])); // 2
 console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1])); // 

@@ -52,12 +52,23 @@
 
 
 function longestSubarray(arr) {
-
-
-
+    const numSet = new Set(arr);
+    let longest = 0;
+    for (const num of numSet.values()) {
+        if (!numSet.has(num - 1)) {
+            let len = 1;
+            let currNume = num;
+            while (numSet.has(currNume + 1)) {
+                len++;
+                currNume++;
+            }
+            longest = Math.max(len, longest);
+        }
+    }
+    return longest;
 }
 console.log(longestSubarray([3, 2, 2, 1])); // 3
-// console.log(longestSubarray([5, 1, 2, 3, 4, 5])); // 2
-// console.log(longestSubarray([0, 1, 2, 1, 2, 3])); // 4
-// console.log(longestSubarray([1, 1, 1, 3, 3, 2, 2])); // 4
+console.log(longestSubarray([5, 1, 2, 3, 4, 5])); // 2
+console.log(longestSubarray([0, 1, 2, 1, 2, 3])); // 4
+console.log(longestSubarray([1, 1, 1, 3, 3, 2, 2])); // 4
 
